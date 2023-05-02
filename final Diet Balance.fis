@@ -1,0 +1,40 @@
+[System]
+Name='final Diet Balance'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='food_intake_timing'
+Range=[0 1]
+NumMFs=5
+MF1='9.00AM':'gaussmf',[0.1062 0]
+MF2='11.00AM':'gaussmf',[0.1062 0.25]
+MF3='1.00PM':'gaussmf',[0.1062 0.5]
+MF4='4.00PM':'gaussmf',[0.1062 0.75]
+MF5='8.00PM':'gaussmf',[0.1062 1]
+
+[Input2]
+Name='types_of_food_with_ratio'
+Range=[0 1]
+NumMFs=3
+MF1='mf1':'trimf',[-0.416666666666667 0 0.416666666666667]
+MF2='mf2':'trimf',[0.0833333333333333 0.5 0.916666666666667]
+MF3='mf3':'trimf',[0.583333333333333 1 1.41666666666667]
+
+[Output1]
+Name='Weight_Gained'
+Range=[0 1]
+NumMFs=3
+MF1='mf1':'trimf',[-0.416666666666667 0 0.416666666666667]
+MF2='mf2':'trimf',[0.0833333333333333 0.5 0.916666666666667]
+MF3='mf3':'trimf',[0.583333333333333 1 1.41666666666667]
+
+[Rules]
